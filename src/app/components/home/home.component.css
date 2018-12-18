@@ -1,0 +1,14 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "Formulario" "Listado";
+}
+
+.Formulario {
+    grid-area: Formulario;
+}
+
+.Listado {
+    grid-area: Listado;
+}
