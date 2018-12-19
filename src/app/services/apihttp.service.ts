@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import 'rxjs';
+// import 'rxjs';
 import { TipoUsuario } from './../interfaces/usuario.interface';
 
 

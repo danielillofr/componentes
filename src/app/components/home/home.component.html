@@ -2,47 +2,49 @@
     <div class="Formulario">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <form role="form">
                         <div class="form-group">
 
-                            <label for="exampleInputEmail1">
-                  Email address
+                            <label for="referencia">
+                  Referencia
                 </label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" />
+                            <input type="text" class="form-control" id="referencia" [(ngModel)]="editando.referencia" name="referencia" />
                         </div>
                         <div class="form-group">
-
                             <label for="exampleInputPassword1">
-                  Password
-                </label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" />
+                              Fabricante
+                            </label>
+                            <input type="text" class="form-control" id="fabricante" [(ngModel)]="editando.fabricante" name="fabricante" />
                         </div>
                         <div class="form-group">
-
-                            <label for="exampleInputFile">
-                  File input
-                </label>
-                            <input type="file" class="form-control-file" id="exampleInputFile" />
-                            <p class="help-block">
-                                Example block-level help text here.
-                            </p>
+                            <label for="exampleInputPassword1">
+                            Descripcion
+                          </label>
+                            <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.descripcion" name="descripcion" />
                         </div>
-                        <div class="checkbox">
-
-                            <label>
-                  <input type="checkbox" /> Check me out
-                </label>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">
+                          Fecha entrada
+                        </label>
+                            <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" />
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                Submit
-              </button>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">
+                              Cantidad
+                            </label>
+                            <input type="text" class="form-control" id="cantidad" [(ngModel)]="editando.cantidad" name="cantidad" />
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="Crear_componente()">
+                          Crear
+                      </button>
                     </form>
                 </div>
             </div>
         </div>
 
     </div>
+
     <div class="Listado">
         <div class="container-fluid">
             <div class="row">
@@ -54,85 +56,45 @@
                                     #
                                 </th>
                                 <th>
-                                    Product
+                                    Referencia
                                 </th>
                                 <th>
-                                    Payment Taken
+                                    Fabricante
                                 </th>
                                 <th>
-                                    Status
+                                    Descripción
                                 </th>
+                                <th>
+                                    Fecha entrada
+                                </th>
+                                <th>
+                                    Cantidad
+                                </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let componente of componentes; let i=index">
                                 <td>
-                                    1
+                                    {{i}}
                                 </td>
                                 <td>
-                                    TB - Monthly
+                                    {{componente.referencia}}
                                 </td>
                                 <td>
-                                    01/04/2012
+                                    {{componente.fabricante}}
                                 </td>
                                 <td>
-                                    Default
-                                </td>
-                            </tr>
-                            <tr class="table-active">
-                                <td>
-                                    1
+                                    {{componente.descripcion}}
                                 </td>
                                 <td>
-                                    TB - Monthly
+                                    {{componente.fechaEntrada}}
                                 </td>
                                 <td>
-                                    01/04/2012
+                                    {{componente.cantidad}}
                                 </td>
                                 <td>
-                                    Approved
-                                </td>
-                            </tr>
-                            <tr class="table-success">
-                                <td>
-                                    2
-                                </td>
-                                <td>
-                                    TB - Monthly
-                                </td>
-                                <td>
-                                    02/04/2012
-                                </td>
-                                <td>
-                                    Declined
-                                </td>
-                            </tr>
-                            <tr class="table-warning">
-                                <td>
-                                    3
-                                </td>
-                                <td>
-                                    TB - Monthly
-                                </td>
-                                <td>
-                                    03/04/2012
-                                </td>
-                                <td>
-                                    Pending
-                                </td>
-                            </tr>
-                            <tr class="table-danger">
-                                <td>
-                                    4
-                                </td>
-                                <td>
-                                    TB - Monthly
-                                </td>
-                                <td>
-                                    04/04/2012
-                                </td>
-                                <td>
-                                    Call in to confirm
+                                    <input type="button" (click)="Eliminar(componente._id)">
                                 </td>
                             </tr>
                         </tbody>
