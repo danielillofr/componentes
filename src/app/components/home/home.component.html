@@ -1,49 +1,4 @@
 <div class="grid-container">
-    <div class="Formulario">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
-                    <form role="form">
-                        <div class="form-group">
-
-                            <label for="referencia">
-                  Referencia
-                </label>
-                            <input type="text" class="form-control" id="referencia" [(ngModel)]="editando.referencia" name="referencia" />
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">
-                              Fabricante
-                            </label>
-                            <input type="text" class="form-control" id="fabricante" [(ngModel)]="editando.fabricante" name="fabricante" />
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">
-                            Descripcion
-                          </label>
-                            <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.descripcion" name="descripcion" />
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">
-                          Fecha entrada
-                        </label>
-                            <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" />
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">
-                              Cantidad
-                            </label>
-                            <input type="text" class="form-control" id="cantidad" [(ngModel)]="editando.cantidad" name="cantidad" />
-                        </div>
-                        <button type="submit" class="btn btn-primary" (click)="Crear_componente()">
-                          Crear
-                      </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
 
     <div class="Listado">
         <div class="container-fluid">
@@ -71,6 +26,7 @@
                                     Cantidad
                                 </th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,11 +50,17 @@
                                     {{componente.cantidad}}
                                 </td>
                                 <td>
-                                    <input type="button" (click)="Eliminar(componente._id)">
+                                    <input type="button" (click)="Eliminar(componente._id,i)" value="Eliminar">
+                                </td>
+                                <td>
+                                    <input type="button" (click)="Detalle(componente._id,i)" value="Detalle">
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <div style="text-align: center">
+                        <input type="button" value="Crear nuevo componente" style="text-align: center" (click)="Nuevo()">
+                    </div>
                 </div>
             </div>
         </div>

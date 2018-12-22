@@ -10,6 +10,8 @@ import {FormsModule} from '@angular/forms';
 
 import { app_routing } from './app.routes';
 import { HomeComponent } from './components/home/home.component';
+import { NuevoComponent } from './components/nuevo/nuevo.component';
+import { ModificaComponent } from './components/modifica/modifica.component';
 
 
 
@@ -17,7 +19,9 @@ import { HomeComponent } from './components/home/home.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NuevoComponent,
+    ModificaComponent
   ],
   imports: [
     BrowserModule,

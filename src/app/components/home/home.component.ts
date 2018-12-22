@@ -13,13 +13,6 @@ export class HomeComponent implements OnInit {
 
   componentes: any[] = [];
 
-  editando: any = {
-    referencia: '',
-    fabricante: '',
-    descripcion: '',
-    fechaEntrada: '',
-    cantidad: 0
-  };
 
   constructor(private apicom: ApicompService, private apihttp: ApihttpService, private router: Router) {
     if (!apihttp.logueado) {
@@ -39,23 +32,22 @@ export class HomeComponent implements OnInit {
       console.log('Data:', this.componentes);
     });
   }
-  Crear_componente () {
-    this.apicom.Crear_componente (this.editando).subscribe (data => {
-      console.log(data);
-      if (data.ok === true) {
-        this.componentes.push(data.componente);
-        console.log(this.componentes);
-      } else {
-        alert (`Error creando componente: ${data.err}`);
-      }
-    });
-  }
-  Eliminar (id: String) {
+
+  Eliminar (id: String, index: number) {
     console.log('Eliminando:', id);
     this.apicom.Eliminar_componente (id).subscribe (data => {
       if (data.ok === true) {
         console.log(data);
+        this.componentes.splice (index, 1);
       }
-    })
+    });
+  }
+
+  Detalle (id: String, index: number) {
+    this.router.navigate ([`modifica/${id}`]);
+  }
+
+  Nuevo () {
+    this.router.navigate(['nuevo']);
   }
 }

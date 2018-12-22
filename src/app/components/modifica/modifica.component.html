@@ -1,0 +1,155 @@
+<div class="container-fluid" *ngIf="editando">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="referencia">
+                          Referencia
+                        </label>
+                            <input type="text" class="form-control" id="referencia" [(ngModel)]="editando.referencia" name="referencia" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="fabricante">
+                          Fabricante
+                        </label>
+                            <input type="text" class="form-control" id="fabricante" [(ngModel)]="editando.fabricante" name="fabricante" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="fechaEntrada">
+                              Fecha de Entrada
+                            </label>
+                            <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="descripcion">
+                              Descripción
+                            </label>
+                            <input type="text" class="form-control" id="descripcion" [(ngModel)]="editando.descripcion" name="descripcion" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="cantidad">
+                              Cantidad
+                            </label>
+                            <input type="text" class="form-control" id="cantidad" [(ngModel)]="editando.cantidad" name="cantidad" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-8">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-success btn-block" (click)="Modificar()">
+                      <img src="assets/folder-3x.png">
+                        Modificar
+                      </button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-warning btn-block" (click)="Volver()">
+                      <img src="assets/home-3x.png">
+                            Volver
+                          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"><br></div>
+    </div>
+    <div style="border-block-start-width: 1px; border-style: solid">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="almacen">
+                Almacen
+              </label>
+                        <input type="text" class="form-control" id="almacen" [(ngModel)]="nuevoMovimiento.almacen" name="almacen" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="cantidad">
+                  Cantidad
+                </label>
+                        <input type="text" class="form-control" id="cantidad" [(ngModel)]="nuevoMovimiento.cantidad" name="cantidad" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-danger btn-block" (click)="Crear_movimiento()">
+              <img src="assets/transfer-3x.png">
+               Mover
+            </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><br></div>
+        </div>
+    </div>
+</div>
+
+<!-- Tabla -->
+
+<div class="container-fluid" *ngIf="movimientos">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Almacen
+                        </th>
+                        <th>
+                            Cantidad
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let movimiento of movimientos; let i=index">
+                        <td>
+                            {{i}}
+                        </td>
+                        <td>
+                            {{movimiento.almacen}}
+                        </td>
+                        <td>
+                            {{movimiento.cantidad}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
