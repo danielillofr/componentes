@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApihttpService } from './../services/apihttp.service';
+import { environment } from './../../environments/environment';
+
 
 
 @Injectable({
@@ -8,8 +10,8 @@ import { ApihttpService } from './../services/apihttp.service';
 })
 export class ApicompService {
    //env: String = '';
-   env: String = 'http://localhost:3000';
-
+  //  env: String = 'http://localhost:3000';
+  env: String = environment.ruta_backend;
   constructor(private http: HttpClient, private api: ApihttpService) { }
 
   Solicitar_componentes () {

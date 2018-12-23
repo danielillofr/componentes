@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./grid-layout.css']
 })
 export class LoginComponent implements OnInit {
-  private usuario: String = '';
-  private clave: String = '';
+  usuario: String = '';
+  clave: String = '';
   titulo: String = 'TodoList';
   errorAcceso: String = '';
   constructor(private apihttp: ApihttpService, private router: Router) {

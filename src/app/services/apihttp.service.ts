@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import 'rxjs';
 import { TipoUsuario } from './../interfaces/usuario.interface';
+import { environment } from './../../environments/environment';
 
 
 
@@ -13,7 +14,8 @@ export class ApihttpService {
   public logueado: Boolean = false;
 
    //env: String = '';
-    env: String = 'http://localhost:3000';
+    // env: String = 'http://localhost:3000';
+    env: String = environment.ruta_backend;
 
   constructor(private http: HttpClient) {
   }
