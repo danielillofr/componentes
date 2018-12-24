@@ -59,12 +59,26 @@ export class ModificaComponent implements OnInit {
     this.router.navigate (['home']);
   }
 
-  Modificar () {
+  Cambiar_estado () {
+    const movimiento: TipoMovimiento = {
+      almacen: '--',
+      cantidad: '--',
+      fechaMovimiento: '',
+      autor: '',
+      estado: this.editando.estado
+    }
     this.apicom.Modificar_componente (this.id_componente, this.editando).subscribe (data => {
       if (!data.ok) {
         alert ('No se ha podido actualizar el componente');
       } else {
-        this.router.navigate (['home']);
+        this.apicom.Crear_movimiento (this.id_componente, movimiento).subscribe (dataC => {
+          if (!dataC.ok) {
+            alert ('No se ha podido crear el movimiento');
+          } else {
+            // this.router.navigate (['home']);
+            this.movimientos.push(dataC.movimiento);
+          }
+        });
       }
     });
   }

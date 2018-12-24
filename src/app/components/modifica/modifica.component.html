@@ -46,32 +46,47 @@
                     </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
+            <div style="border-block-start-width: 1px; border-style: solid">
 
-
-                    <form role="form">
-                        <div class="form-group">
-                            <label for="fechaEntrada">
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="fechaEntrada">
                               Estado
                             </label>
-                            <!-- values: ['SOLICITADA', 'HOMOLOGANDO', 'RECHAZADA', 'HOMOLOGADA', 'NO_APLICA'], -->
-                            <select class="form-control" id="estado" [(ngModel)]="editando.estado" name="estado">
+                                <!-- values: ['SOLICITADA', 'HOMOLOGANDO', 'RECHAZADA', 'HOMOLOGADA', 'NO_APLICA'], -->
+                                <select class="form-control" id="estado" [(ngModel)]="editando.estado" name="estado">
                               <option value="SOLICITADA">SOLICITADA</option>
                               <option value="HOMOLOGANDO">HOMOLOGANDO</option>
                               <option value="RECHAZADA">RECHAZADA</option>
                               <option value="HOMOLOGADA">HOMOLOGADA</option>
                               <option value="NO_APLICA">NO APLICA</option>
                             </select>
-                            <!-- <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" /> -->
+                                <!-- <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" /> -->
 
-                        </div>
-                    </form>
-
-
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-5"></div>
                 </div>
-                <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-success btn-block" (click)="Cambiar_estado()">
+                        <img src="assets/folder-3x.png">
+                         Cambiar estado
+                      </button>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
                 </div>
+                <!-- Separador -->
+                <div class="row">
+                    <div class="col-md-12"><br></div>
+                </div>
+
             </div>
         </div>
     </div>
