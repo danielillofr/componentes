@@ -17,7 +17,8 @@ export class NuevoComponent implements OnInit {
     fabricante: '',
     descripcion: '',
     fechaEntrada: '',
-    cantidad: 0
+    cantidad: 0,
+    estado: 'SOLICITADA'
   };
 
   constructor(private router: Router, private apicom: ApicompService, apihttp: ApihttpService) {
@@ -29,6 +30,9 @@ export class NuevoComponent implements OnInit {
   ngOnInit() {
   }
   Crear_componente () {
+    const f = new Date();
+    this.editando.fechaEntrada = f.getDate() + '/' + (f.getMonth() + 1) + '/' + f.getFullYear();
+    console.log('Componente a crear', this.editando);
     this.apicom.Crear_componente (this.editando).subscribe (data => {
       console.log(data);
       if (data.ok === true) {

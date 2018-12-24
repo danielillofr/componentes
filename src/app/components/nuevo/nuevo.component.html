@@ -28,7 +28,16 @@
                             <label for="fechaEntrada">
                               Fecha de Entrada
                             </label>
-                            <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" />
+                            <!-- values: ['SOLICITADA', 'HOMOLOGANDO', 'RECHAZADA', 'HOMOLOGADA', 'NO_APLICA'], -->
+                            <select class="form-control" id="estado" [(ngModel)]="editando.estado" name="estado">
+                              <option value="SOLICITADA">SOLICITADA</option>
+                              <option value="HOMOLOGANDO">HOMOLOGANDO</option>
+                              <option value="RECHAZADA">RECHAZADA</option>
+                              <option value="HOMOLOGADA">HOMOLOGADA</option>
+                              <option value="NO_APLICA">NO APLICA</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" /> -->
+
                         </div>
                     </form>
                 </div>
