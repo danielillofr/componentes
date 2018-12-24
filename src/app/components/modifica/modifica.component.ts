@@ -19,7 +19,10 @@ export class ModificaComponent implements OnInit {
   movimientos: TipoMovimiento[] = [];
   nuevoMovimiento: TipoMovimiento = {
     almacen: '',
-    cantidad: ''
+    cantidad: '',
+    fechaMovimiento: '',
+    autor: '',
+    estado: 'NO_APLICA'
   };
   constructor(private ar: ActivatedRoute, private router: Router, private apihttp: ApihttpService, private apicom: ApicompService) {
     if (!apihttp.logueado) {
@@ -66,6 +69,7 @@ export class ModificaComponent implements OnInit {
     });
   }
   Crear_movimiento () {
+    this.nuevoMovimiento.estado = this.editando.estado;
     this.apicom.Crear_movimiento (this.id_componente, this.nuevoMovimiento).subscribe (data => {
       if (!data.ok) {
         alert ('Error creando el movimiento');

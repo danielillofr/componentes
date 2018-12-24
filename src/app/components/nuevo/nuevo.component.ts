@@ -36,7 +36,7 @@ export class NuevoComponent implements OnInit {
     this.apicom.Crear_componente (this.editando).subscribe (data => {
       console.log(data);
       if (data.ok === true) {
-        this.apicom.Crear_movimiento (data.componente._id, {almacen: 'ID', cantidad: this.editando.cantidad}).subscribe ((dataC) => {
+        this.apicom.Crear_movimiento (data.componente._id, {almacen: 'ID', cantidad: this.editando.cantidad, estado: this.editando.estado}).subscribe ((dataC) => {
           if (dataC.ok === true) {
             this.router.navigate (['home']);
           } else {

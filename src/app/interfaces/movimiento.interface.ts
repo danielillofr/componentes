@@ -1,5 +1,8 @@
 export interface TipoMovimiento {
   almacen: String,
-  cantidad: String
+  cantidad: String,
+  fechaMovimiento: String,
+  autor: String,
+  estado: String
 }
 
