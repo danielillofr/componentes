@@ -12,6 +12,7 @@ import { app_routing } from './app.routes';
 import { HomeComponent } from './components/home/home.component';
 import { NuevoComponent } from './components/nuevo/nuevo.component';
 import { ModificaComponent } from './components/modifica/modifica.component';
+import { PorTipoPipe } from './pipes/por-tipo.pipe';
 
 
 
@@ -21,7 +22,8 @@ import { ModificaComponent } from './components/modifica/modifica.component';
     LoginComponent,
     HomeComponent,
     NuevoComponent,
-    ModificaComponent
+    ModificaComponent,
+    PorTipoPipe
   ],
   imports: [
     BrowserModule,

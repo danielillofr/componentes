@@ -10,6 +10,7 @@ import { ModificaComponent } from './components/modifica/modifica.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'home/:tipo', component: HomeComponent },
   { path: 'nuevo', component: NuevoComponent },
   { path: 'modifica/:id', component: ModificaComponent },
   { path: '**', component: LoginComponent },

@@ -1,3 +1,36 @@
+<div class="row">
+    <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <!-- values: ['SOLICITADA', 'HOMOLOGANDO', 'RECHAZADA', 'HOMOLOGADA', 'NO_APLICA'], -->
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active">Todos <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/home','SOLICITADA']" routerLinkActive="router-link-active">Solicitadas <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/home','HOMOLOGANDO']" routerLinkActive="router-link-active">Homologandose <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/home','HOMOLOGADA']" routerLinkActive="router-link-active">Homologadas <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/home','RECHAZADA']" routerLinkActive="router-link-active">Rechazadas <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/home','NO_APLICA']" routerLinkActive="router-link-active">Otros <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" id="busqueda" [(ngModel)]="busqueda" name="busqueda">
+                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button> -->
+                </form>
+            </div>
+        </nav>
+    </div>
+</div>
 <div class="grid-container">
 
     <div class="Listado">
@@ -29,8 +62,12 @@
                                 <th></th>
                             </tr>
                         </thead>
+                        <!-- <small>{{componentes | json}} </small>
+                        <br><br>
+                        <hr>
+                        <small>{{componentes | porTipo:{tipo: tipo,busqueda: busqueda} | json}}</small> -->
                         <tbody>
-                            <tr *ngFor="let componente of componentes; let i=index">
+                            <tr *ngFor="let componente of componentes | porTipo:{tipo: tipo,busqueda: busqueda}; let i=index">
                                 <td>
                                     {{i}}
                                 </td>

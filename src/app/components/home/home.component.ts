@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApicompService } from './../../services/apicomp.service';
 import { ApihttpService } from './../../services/apihttp.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,11 +13,21 @@ export class HomeComponent implements OnInit {
 
   componentes: any[] = [];
 
+  tipo: String;
+  busqueda: String = '';
 
-  constructor(private apicom: ApicompService, private apihttp: ApihttpService, private router: Router) {
+  constructor(private apicom: ApicompService, private apihttp: ApihttpService, private router: Router, private ar: ActivatedRoute) {
     if (!apihttp.logueado) {
       router.navigate(['']);
     }
+    ar.params.subscribe(data => {
+      if (data.tipo) {
+        this.tipo = data.tipo;
+        console.log(data.tipo);
+      } else {
+        this.tipo = '';
+      }
+    });
   }
 
   ngOnInit() {
