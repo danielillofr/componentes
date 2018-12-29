@@ -46,6 +46,29 @@
                     </form>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="urgencia">
+                      Urgencia
+                    </label>
+                            <input type="text" class="form-control" readonly id="urgencia" [(ngModel)]="editando.urgencia" name="urgencia" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-10">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="motivo">
+                      Motivo
+                    </label>
+                            <input type="text" class="form-control" readonly id="motivo" [(ngModel)]="editando.motivo" name="motivo" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div style="border-block-start-width: 1px; border-style: solid">
 
                 <div class="row">

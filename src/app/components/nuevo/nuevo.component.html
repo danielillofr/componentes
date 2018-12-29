@@ -50,22 +50,52 @@
                     <form role="form">
                         <div class="form-group">
                             <label for="fechaEntrada">
-                              Estado
-                            </label>
+                            Estado
+                          </label>
                             <!-- values: ['SOLICITADA', 'HOMOLOGANDO', 'RECHAZADA', 'HOMOLOGADA', 'NO_APLICA'], -->
                             <select class="form-control" id="estado" [(ngModel)]="editando.estado" name="estado">
-                              <option value="SOLICITADA">SOLICITADA</option>
-                              <option value="HOMOLOGANDO">HOMOLOGANDO</option>
-                              <option value="RECHAZADA">RECHAZADA</option>
-                              <option value="HOMOLOGADA">HOMOLOGADA</option>
-                              <option value="NO_APLICA">NO APLICA</option>
-                            </select>
+                            <option value="SOLICITADA">SOLICITADA</option>
+                            <option value="HOMOLOGANDO">HOMOLOGANDO</option>
+                            <option value="RECHAZADA">RECHAZADA</option>
+                            <option value="HOMOLOGADA">HOMOLOGADA</option>
+                            <option value="NO_APLICA">NO APLICA</option>
+                          </select>
                             <!-- <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" /> -->
 
                         </div>
                     </form>
                 </div>
                 <div class="col-md-8">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="Urgencia">
+                          Urgencia
+                        </label>
+                            <!-- values: ['MUY URGENTE', 'URGENTE', 'NECESARIO', 'MEJORA'], -->
+                            <select class="form-control" id="urgencia" [(ngModel)]="editando.urgencia" name="urgencia">
+                          <option value="MUY URGENTE">MUY URGENTE</option>
+                          <option value="URGENTE">URGENTE</option>
+                          <option value="NECESARIO">NECESARIO</option>
+                          <option value="MEJORA">MEJORA</option>
+                        </select>
+                            <!-- <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" /> -->
+
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-8">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="Motivo">
+                          Motivo
+                        </label>
+                            <input type="text" class="form-control" id="motivo" [(ngModel)]="editando.motivo" name="motivo" />
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="row">

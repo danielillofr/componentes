@@ -18,7 +18,9 @@ export class NuevoComponent implements OnInit {
     descripcion: '',
     fechaEntrada: '',
     cantidad: 0,
-    estado: 'SOLICITADA'
+    estado: 'SOLICITADA',
+    urgencia: 'URGENTE',
+    motivo: ''
   };
 
   constructor(private router: Router, private apicom: ApicompService, apihttp: ApihttpService) {
