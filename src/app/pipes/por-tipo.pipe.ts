@@ -2,11 +2,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Pipe({
-  name: 'porTipo'
+  name: 'porTipo',
+  pure: false
 })
 export class PorTipoPipe implements PipeTransform {
 
-  transform(componentes: any[], patron: any ): any[] {
+  transform(componentes: any[], patron: any): any[] {
     let vuelta: any[] = [];
     componentes.forEach(componente => {
       if ((patron.tipo === '') || (componente.estado === patron.tipo)) {

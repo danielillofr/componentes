@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ApicompService } from './../../services/apicomp.service';
 import { ApihttpService } from './../../services/apihttp.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
   tipo: String;
   busqueda: String = '';
 
-  constructor(private apicom: ApicompService, private apihttp: ApihttpService, private router: Router, private ar: ActivatedRoute) {
+  constructor(private apicom: ApicompService, private apihttp: ApihttpService, private router: Router,
+              private ar: ActivatedRoute, private cdr: ChangeDetectorRef) {
     if (!apihttp.logueado) {
       router.navigate(['']);
     }
