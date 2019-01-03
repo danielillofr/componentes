@@ -77,7 +77,8 @@ export class ApicompService {
       componente: id,
       almacen: valores.almacen,
       cantidad: valores.cantidad,
-      estado: valores.estado
+      estado: valores.estado,
+      motivo: valores.motivo
     }
     console.log('Mov:', valoresMov);
     return this.http.post<any>(`${this.env}/api/movimientos`, valoresMov, opciones);

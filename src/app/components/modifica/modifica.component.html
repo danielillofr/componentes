@@ -72,7 +72,6 @@
             <div style="border-block-start-width: 1px; border-style: solid">
 
                 <div class="row">
-                    <div class="col-md-5"></div>
                     <div class="col-md-2">
                         <form role="form">
                             <div class="form-group">
@@ -92,7 +91,16 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-5"></div>
+                    <div class="col-md-10">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="almacen">
+                        Motivo
+                      </label>
+                                <input type="text" class="form-control" id="almacen" [(ngModel)]="nuevoMovimiento.motivo" name="almacen" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4"></div>
@@ -183,6 +191,9 @@
                         <th>
                             Estado
                         </th>
+                        <th>
+                            Motivo
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -204,6 +215,9 @@
                         </td>
                         <td>
                             {{movimiento.estado}}
+                        </td>
+                        <td>
+                            {{movimiento.motivo}}
                         </td>
                     </tr>
                 </tbody>

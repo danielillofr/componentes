@@ -22,7 +22,8 @@ export class ModificaComponent implements OnInit {
     cantidad: '',
     fechaMovimiento: '',
     autor: '',
-    estado: 'NO_APLICA'
+    estado: 'NO_APLICA',
+    motivo: ''
   };
   constructor(private ar: ActivatedRoute, private router: Router, private apihttp: ApihttpService, private apicom: ApicompService) {
     if (!apihttp.logueado) {
@@ -65,7 +66,8 @@ export class ModificaComponent implements OnInit {
       cantidad: '--',
       fechaMovimiento: '',
       autor: '',
-      estado: this.editando.estado
+      estado: this.editando.estado,
+      motivo: this.nuevoMovimiento.motivo
     }
     this.apicom.Modificar_componente (this.id_componente, this.editando).subscribe (data => {
       if (!data.ok) {
@@ -75,7 +77,6 @@ export class ModificaComponent implements OnInit {
           if (!dataC.ok) {
             alert ('No se ha podido crear el movimiento');
           } else {
-            // this.router.navigate (['home']);
             this.movimientos.push(dataC.movimiento);
           }
         });
@@ -90,12 +91,6 @@ export class ModificaComponent implements OnInit {
       } else {
         console.log('Movimiento:', data.movimiento);
         this.movimientos.push (data.movimiento);
-        // const nuevaCantidad: Number = parseInt(this.editando.cantidad) - parseInt(this.nuevoMovimiento.cantidad);
-        // this.apicom.Modificar_componente (this.id_componente, {cantidad: this.editando.cantidad}).subscribe((data) => {
-        //   if (!data.ok) {
-        //     alert ('Error actualizando componente');
-        //   }
-        // });
       }
     });
   }

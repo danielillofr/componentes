@@ -3,6 +3,7 @@ export interface TipoMovimiento {
   cantidad: String,
   fechaMovimiento: String,
   autor: String,
-  estado: String
+  estado: String,
+  motivo: String
 }
 
