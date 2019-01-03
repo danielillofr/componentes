@@ -85,6 +85,7 @@ export class ModificaComponent implements OnInit {
   }
   Crear_movimiento () {
     this.nuevoMovimiento.estado = this.editando.estado;
+    this.nuevoMovimiento.motivo = '--';
     this.apicom.Crear_movimiento (this.id_componente, this.nuevoMovimiento).subscribe (data => {
       if (!data.ok) {
         alert ('Error creando el movimiento');
