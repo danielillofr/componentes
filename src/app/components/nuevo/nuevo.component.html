@@ -53,11 +53,12 @@
                             Estado
                           </label>
                             <!-- values: ['SOLICITADA', 'HOMOLOGANDO', 'RECHAZADA', 'HOMOLOGADA', 'NO_APLICA'], -->
+                            <!-- No tiene sentido los estados HOMOLOGANDO, HOMOLOGADA y RECHAZADA -->
                             <select class="form-control" id="estado" [(ngModel)]="editando.estado" name="estado">
                             <option value="SOLICITADA">SOLICITADA</option>
-                            <option value="HOMOLOGANDO">HOMOLOGANDO</option>
+                            <!-- <option value="HOMOLOGANDO">HOMOLOGANDO</option>
                             <option value="RECHAZADA">RECHAZADA</option>
-                            <option value="HOMOLOGADA">HOMOLOGADA</option>
+                            <option value="HOMOLOGADA">HOMOLOGADA</option> -->
                             <option value="NO_APLICA">NO APLICA</option>
                           </select>
                             <!-- <input type="text" class="form-control" id="fechaEntrada" [(ngModel)]="editando.fechaEntrada" name="fechaEntrada" /> -->
