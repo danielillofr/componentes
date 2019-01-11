@@ -20,7 +20,8 @@ export class NuevoComponent implements OnInit {
     cantidad: 0,
     estado: 'SOLICITADA',
     urgencia: 'URGENTE',
-    motivo: ''
+    motivo: '',
+    codAirzone: ''
   };
 
   constructor(private router: Router, private apicom: ApicompService, apihttp: ApihttpService) {
