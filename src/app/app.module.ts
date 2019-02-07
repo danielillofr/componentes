@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NuevoComponent } from './components/nuevo/nuevo.component';
 import { ModificaComponent } from './components/modifica/modifica.component';
 import { PorTipoPipe } from './pipes/por-tipo.pipe';
+import { EntradaComponent } from './components/entrada/entrada.component';
+import { PrototiposComponent } from './components/prototipos/prototipos.component';
 
 
 
@@ -23,7 +25,9 @@ import { PorTipoPipe } from './pipes/por-tipo.pipe';
     HomeComponent,
     NuevoComponent,
     ModificaComponent,
-    PorTipoPipe
+    PorTipoPipe,
+    EntradaComponent,
+    PrototiposComponent
   ],
   imports: [
     BrowserModule,

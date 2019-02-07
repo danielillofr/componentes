@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       }
       this.apihttp.token = data.token;
       this.apihttp.logueado = true;
-      this.router.navigate(['home']);
+      this.router.navigate(['entrada']);
       console.log('Datos:', data);
       console.log('Token', data.token);
     }, (err) => {

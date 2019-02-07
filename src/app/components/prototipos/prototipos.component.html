@@ -1,0 +1,49 @@
+<div class="grid-container">
+
+    <div class="Listado">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- <small> {{ componentes | porTipo:{tipo: tipo,busqueda: busqueda, nada: componentes} | json}}</small> -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Nombre
+                                </th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <!-- <small>{{componentes | json}} </small>
+                        <br><br>
+                        <hr>
+                        <small>{{componentes | porTipo:{tipo: tipo,busqueda: busqueda} | json}}</small> -->
+                        <tbody>
+                            <tr *ngFor="let proyecto of proyectos; let i=index">
+                                <td>
+                                    {{i}}
+                                </td>
+                                <td>
+                                    {{proyecto.nombre}}
+                                </td>
+                                <td>
+                                    <input type="button" value="Eliminar">
+                                </td>
+                                <td>
+                                    <input type="button" value="Detalle">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center">
+                        <input type="button" value="Crear nuevo componente" style="text-align: center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
