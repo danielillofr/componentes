@@ -12,5 +12,6 @@ export interface TipoRespuestaComProyecto {
   ok: Boolean,
   errBaseDatos?: String,
   err?: String,
+  prcomponente?: TipoComProyecto,
   prcomponentes?: TipoComProyecto[]
 }

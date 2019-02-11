@@ -25,7 +25,11 @@ export class DetalleProyectoComponent implements OnInit {
 
   formularioProyecto: FormGroup;
 
-  constructor(private activatedroute: ActivatedRoute, router: Router, comproyectoService: ComproyectoService, private proyectosService: ProyectosService) {
+  constructor(private activatedroute: ActivatedRoute, private router: Router, comproyectoService: ComproyectoService, private proyectosService: ProyectosService) {
+    this.formularioProyecto = new FormGroup({
+      codLista: new FormControl ('', [Validators.required, Validators.minLength(3)]),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(3)])
+    });    
     this.activatedroute.params.subscribe(params => {
       if (!params.id) {
         router.navigate(['/']);
@@ -33,6 +37,7 @@ export class DetalleProyectoComponent implements OnInit {
       this.idProyecto = params.id;
       console.log(params.id);
     });
+    
     comproyectoService.Obtener_proyecto_completo(this.idProyecto)
       .then(respuesta => {
         this.proyectoCompleto = respuesta;
@@ -45,20 +50,21 @@ export class DetalleProyectoComponent implements OnInit {
       .catch(err => {
         console.log('Error:', err);
       });
-      this.formularioProyecto = new FormGroup({
-        codLista: new FormControl ('', [Validators.required, Validators.minLength(3)]),
-        nombre: new FormControl('', [Validators.required, Validators.minLength(3)])
-      });
+
    }
 
-   Modificar_codLista =  () => {
-     this.proyectosService.Modificar_codLista(this.idProyecto, this.formularioProyecto.controls['codLista'].value)
+   Modificar_proyecto =  () => {
+     this.proyectosService.Modificar_proyecto(this.idProyecto, this.formularioProyecto.value)
      .then(data => {
        console.log(data);
      })
      .catch(err => {
        alert('Error modificando codLista');
      });
+   }
+
+   Detalle = (id: String) => {
+    this.router.navigate(['modcompproy', this.idProyecto, id]);
    }
 
   ngOnInit() {

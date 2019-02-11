@@ -18,6 +18,7 @@ import { PrototiposComponent } from './components/prototipos/prototipos.componen
 import { NuevoProyectoComponent } from './components/nuevo-proyecto/nuevo-proyecto.component';
 import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-proyecto.component';
 import { NuevoCompProyComponent } from './components/nuevo-comp-proy/nuevo-comp-proy.component';
+import { ModCompProyComponent } from './components/mod-comp-proy/mod-comp-proy.component';
 
 
 
@@ -33,7 +34,8 @@ import { NuevoCompProyComponent } from './components/nuevo-comp-proy/nuevo-comp-
     PrototiposComponent,
     NuevoProyectoComponent,
     DetalleProyectoComponent,
-    NuevoCompProyComponent
+    NuevoCompProyComponent,
+    ModCompProyComponent
   ],
   imports: [
     BrowserModule,

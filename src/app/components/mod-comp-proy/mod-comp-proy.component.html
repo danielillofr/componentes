@@ -1,4 +1,4 @@
-<h3 style="color: chocolate">Nuevo componente</h3>
+<h3 style="color:chocolate">Modificar componente</h3>
 <div class="container-fluid">
     <form [formGroup]="formulario">
         <div class="form-group">
@@ -28,6 +28,27 @@
                       Descripcion
                     </label>
                     <input type="text" class="form-control" formControlName="descripcion" [ngClass]="{'is-invalid': formulario.controls['descripcion'].errors}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="fechaEntrada">
+                        Estado
+                    </label>
+                    <!-- values: ['Solicitado', 'Comprado', 'No disponible', 'Homologado', 'Rechazado'], -->
+                    <select class="form-control" id="estado" formControlName="estado">
+                        <option value="Solicitado">SOLICITADO</option>
+                        <option value="Comprado">COMPRADO</option>
+                        <option value="No disponible">NO DISPONIBLE</option>
+                        <option value="Homologado">HOMOLOGADO</option>
+                        <option value="Rechazado">RECHAZADO</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="Código Airzone">
+                          Código Airzone
+                        </label>
+                    <input type="text" class="form-control" formControlName="codAirzone" [ngClass]="{'is-invalid': formulario.controls['cantidad'].errors}">
                 </div>
             </div>
             <br>

@@ -9,6 +9,7 @@ import { PrototiposComponent } from './components/prototipos/prototipos.componen
 import { NuevoProyectoComponent } from './components/nuevo-proyecto/nuevo-proyecto.component';
 import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-proyecto.component';
 import { NuevoCompProyComponent } from './components/nuevo-comp-proy/nuevo-comp-proy.component';
+import { ModCompProyComponent } from './components/mod-comp-proy/mod-comp-proy.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'nuevoproyecto', component: NuevoProyectoComponent },
   { path: 'detalleproyecto/:id', component: DetalleProyectoComponent },
   { path: 'nuevocompproy/:id', component: NuevoCompProyComponent },
+  { path: 'modcompproy/:idProyecto/:idComponente', component: ModCompProyComponent },
   { path: '**', component: LoginComponent },
 
 ];

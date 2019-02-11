@@ -20,6 +20,27 @@ export class ComproyectoService {
     }
   }
 
+  Obtener_componente_proyecto = (idComponente: String) => {
+    const opciones = {
+      headers: new HttpHeaders ({
+        Authorization: this.apihttp.token
+      })
+    };
+    return new Promise((resolve, reject) => {
+      this.http.get<TipoRespuestaComProyecto>(`${this.env}/api/prcomponentes/${idComponente}`, opciones).subscribe(data => {
+        if (!data.ok) {
+          if (data.errBaseDatos) {
+            reject ('Error en base de datos');
+          }
+          reject (data.err);
+        }
+        resolve (<TipoComProyecto>data.prcomponente);
+        }, (err) => {
+          reject (err);
+      })
+    })
+  }
+
   Obtener_proyecto = (id: String) => {
     const opciones = {
       headers: new HttpHeaders ({
@@ -49,7 +70,7 @@ export class ComproyectoService {
       })
     };
     return new Promise((resolve, reject) => {
-      this.http.get<TipoRespuestaComProyecto>(`${this.env}/api/prcomponentes/${id}`, opciones).subscribe(data => {
+      this.http.get<TipoRespuestaComProyecto>(`${this.env}/api/prcomponentes/proyecto/${id}`, opciones).subscribe(data => {
         // resolve (data);
         console.log('Datos:::', data);
        if (!data.ok) {
@@ -90,6 +111,27 @@ export class ComproyectoService {
           reject (data.err);
         }
         resolve (<TipoComProyecto[]>data.prcomponentes);
+        }, (err) => {
+          reject (err);
+        });
+    });
+  }
+
+  Actualizar_componente_proyecto = (id: String, datos: any) => {
+    const opciones = {
+      headers: new HttpHeaders ({
+        Authorization: this.apihttp.token
+      })
+    };
+    return new Promise((resolve, reject) => {
+      this.http.put<TipoRespuestaComProyecto>(`${this.env}/api/prcomponentes/${id}`, datos, opciones).subscribe(data => {
+        if (!data.ok) {
+          if (data.errBaseDatos) {
+            reject ('Error en base de datos');
+          }
+          reject (data.err);
+        }
+        resolve (<TipoComProyecto>data.prcomponente);
         }, (err) => {
           reject (err);
         });

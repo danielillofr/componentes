@@ -1,11 +1,12 @@
+<hr>
+<h3 style="color: chocolate">Listado de proyectos</h3>
 <div class="grid-container">
-
     <div class="Listado">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <!-- <small> {{ componentes | porTipo:{tipo: tipo,busqueda: busqueda, nada: componentes} | json}}</small> -->
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>
@@ -39,8 +40,20 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
                     <div style="text-align: center">
-                        <input type="button" [routerLink]="['/nuevoproyecto']" value="Crear nuevo proyecto" style="text-align: center">
+                        <button class="btn-block btn-success" [routerLink]="['/nuevoproyecto']" style="text-align: center">Crear nuevo proyecto</button>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <div style="text-align: center">
+                        <button class="btn-block btn-danger" [routerLink]="['/entrada']" style="text-align: center">Volver</button>
                     </div>
                 </div>
             </div>

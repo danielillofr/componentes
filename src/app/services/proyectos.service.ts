@@ -58,15 +58,13 @@ export class ProyectosService {
     });
   }
 
-  Modificar_codLista = (id: String, codLista: String) => {
+  Modificar_proyecto = (id: String, datos: any) => {
     const opciones = {
       headers: new HttpHeaders ({
         Authorization: this.apihttp.token
       })
     };
-    const datos = {
-      codLista
-    };
+
     return new Promise((resolve, reject) => {
       this.http.put<TipoRespuestaProyectos>(`${this.env}/api/proyectos/${id}`, datos, opciones).subscribe(data => {
         if (!data.ok) {
