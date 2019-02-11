@@ -33,8 +33,6 @@ export class LoginComponent implements OnInit {
       this.apihttp.token = data.token;
       this.apihttp.logueado = true;
       this.router.navigate(['entrada']);
-      console.log('Datos:', data);
-      console.log('Token', data.token);
     }, (err) => {
       this.errorAcceso = 'Error accediendo a la base de datos';
     });

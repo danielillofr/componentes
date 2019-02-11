@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <form [formGroup]="formulario">
+        <!-- <form> -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4" style="text-align: center">
+                    <label for="nombre">
+                    Nombre del proyecto
+                  </label>
+                    <input formControlName="nombre" class="form-control" type="text" id="nombre" [ngClass]="{'is-invalid': formulario.controls['nombre'].errors}" />
+                    <small *ngIf="formulario.controls['nombre'].errors">Longitud mínima 3 caracteres</small>
+                    <br>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button class="btn-block" disabled="{{formulario.controls['nombre'].errors}}" [ngClass]="{'btn-success': !(formulario.controls['nombre'].errors)}" type="button" (click)="Guardar()">Guardar</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </form>
+</div>

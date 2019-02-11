@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <h2>Detalle del proyecto</h2>
+    <form [formGroup]="formularioProyecto">
+        <div class="form-group">
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <label for="nombre">
+                    Nombre
+                  </label>
+                    <input class="form-control" type="text" id="nombre" formControlName="nombre" [ngClass]="{'is-invalid': formularioProyecto.controls['nombre'].errors}">
+                    <small *ngIf="formularioProyecto.controls['nombre'].errors">Longitud mínima de tres caracteres</small>
+                </div>
+                <div class="col-md-4">
+                    <label for="codLista">
+                      Código Airzone
+                    </label>
+                    <input class="form-control" type="text" id="codLista" formControlName="codLista" [ngClass]="{'is-invalid': formularioProyecto.controls['codLista'].errors}">
+                    <small *ngIf="formularioProyecto.controls['codLista'].errors">Longitud mínima de tres caracteres</small>
+                </div>
+                <div class="col-md-4">
+                    <button style="position: relative; height: 50%; top: 25%" type="button" (click)="Modificar_codLista()" class="btn-block btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<hr>
+<h2>Componentes del proyecto</h2>
+<div class="container-fluid" *ngIf="proyectoCompleto">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Rerencia
+                    </th>
+                    <th>
+                        Descripción
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let prcomponente of proyectoCompleto.comProyecto; let i=index">
+                        <td>
+                            {{i}}
+                        </td>
+                        <td>
+                            {{prcomponente.referencia}}
+                        </td>
+                        <td>
+                            {{prcomponente.descripcion}}
+                        </td>
+                        <td>
+                            {{prcomponente.estado}}
+                        </td>
+                        <td>
+                            <button class="btn-block">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <button class="btn-block btn-success" [routerLink]="['/nuevocompproy', idProyecto]">Nuevo componente</button>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+</div>

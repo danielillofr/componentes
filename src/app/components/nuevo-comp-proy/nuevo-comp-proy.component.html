@@ -1,0 +1,43 @@
+<h2>Nuevo componente</h2>
+<div class="container-fluid">
+    <form [formGroup]="formulario">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="referencia">
+                      Referencia
+                    </label>
+                    <input type="text" class="form-control" formControlName="referencia" [ngClass]="{'is-invalid': formulario.controls['referencia'].errors}">
+                </div>
+                <div class="col-md-6">
+                    <label for="url">
+                      URL
+                    </label>
+                    <input type="text" class="form-control" formControlName="url" [ngClass]="{'is-invalid': formulario.controls['url'].errors}">
+                </div>
+                <div class="col-md-2">
+                    <label for="cantidad">
+                      Cantidad
+                    </label>
+                    <input type="text" class="form-control" formControlName="cantidad" [ngClass]="{'is-invalid': formulario.controls['cantidad'].errors}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="descripcion">
+                      Descripcion
+                    </label>
+                    <input type="text" class="form-control" formControlName="descripcion" [ngClass]="{'is-invalid': formulario.controls['descripcion'].errors}">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button class="btn-block btn-success" (click)="Guardar()">Guardar</button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </form>
+</div>

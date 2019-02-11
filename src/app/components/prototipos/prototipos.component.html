@@ -31,16 +31,16 @@
                                     {{proyecto.nombre}}
                                 </td>
                                 <td>
-                                    <input type="button" value="Eliminar">
+                                    <input type="button" value="Eliminar" (click)="Eliminar(proyecto._id, i)">
                                 </td>
                                 <td>
-                                    <input type="button" value="Detalle">
+                                    <input type="button" value="Detalle" (click)="Modificar(proyecto._id)">
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div style="text-align: center">
-                        <input type="button" value="Crear nuevo componente" style="text-align: center">
+                        <input type="button" [routerLink]="['/nuevoproyecto']" value="Crear nuevo proyecto" style="text-align: center">
                     </div>
                 </div>
             </div>
