@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComproyectoService } from './../../services/comproyecto.service';
 import { TipoComProyecto } from '../../interfaces/comproyecto.interface';
+import { TipoLogComPro } from './../../interfaces/logcompro.interface';
+
 
 @Component({
   selector: 'app-mod-comp-proy',
@@ -14,6 +16,7 @@ export class ModCompProyComponent implements OnInit {
     formulario: FormGroup;
     idComponente: String;
     idProyecto: String;
+    logs: TipoLogComPro[];
     constructor(private activatedRoute: ActivatedRoute, private comproyectoService: ComproyectoService, private router: Router) {
       this.formulario = new FormGroup({
         referencia: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -41,7 +44,15 @@ export class ModCompProyComponent implements OnInit {
           .catch(err => {
             console.log(err);
           });
-      })
+          this.comproyectoService.Obtener_logs_componente(this.idComponente)
+            .then(data => {
+              console.log(data);
+              this.logs = <TipoLogComPro[]>data;
+            })
+            .catch(err => {
+              console.log('Error:', err);
+            });
+      });
      }
      Guardar = () => {
        this.comproyectoService.Actualizar_componente_proyecto(this.idComponente, this.formulario.value)

@@ -15,13 +15,13 @@
                 </div>
                 <div class="col-md-4">
                     <label for="codLista">
-                      Código Airzone
+                      Código Lista
                     </label>
                     <input class="form-control" type="text" id="codLista" formControlName="codLista" [ngClass]="{'is-invalid': formularioProyecto.controls['codLista'].errors}">
                     <small *ngIf="formularioProyecto.controls['codLista'].errors">Longitud mínima de tres caracteres</small>
                 </div>
                 <div class="col-md-4">
-                    <button style="position: relative; height: 50%; top: 25%" type="button" (click)="Modificar_proyecto()" class="btn-block btn-success">Guardar</button>
+                    <button disabled="{{formularioProyecto.controls['nombre'].errors}}" style="position: relative; height: 50%; top: 25%" type="button" (click)="Modificar_proyecto()" class="btn btn-block btn-success">Guardar</button>
                 </div>
             </div>
         </div>
@@ -49,6 +49,12 @@
                     <th>
                         Código Airzone
                     </th>
+                    <th>
+                        URL
+                    </th>
+                    <th>
+                        Cantidad
+                    </th>
                     <th></th>
                 </thead>
                 <tbody>
@@ -69,7 +75,13 @@
                             {{prcomponente.codAirzone}}
                         </td>
                         <td>
-                            <button class="btn-block" (click)="Detalle(prcomponente._id)">Editar</button>
+                            <a href="{{prcomponente.url}}">{{prcomponente.url}}</a>
+                        </td>
+                        <td>
+                            {{prcomponente.cantidad}}
+                        </td>
+                        <td>
+                            <button class="btn btn-block" (click)="Detalle(prcomponente._id)">Editar</button>
                         </td>
                     </tr>
                 </tbody>
@@ -81,7 +93,7 @@
     <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-2">
-            <button class="btn-block btn-success" [routerLink]="['/nuevocompproy', idProyecto]">Nuevo componente</button>
+            <button class="btn btn-block btn-success" [routerLink]="['/nuevocompproy', idProyecto]">Nuevo componente</button>
         </div>
         <div class="col-md-5"></div>
     </div>
@@ -89,7 +101,7 @@
     <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-2">
-            <button class="btn-block btn-danger" [routerLink]="['/prototipos']">Volver</button>
+            <button class="btn btn-block btn-danger" [routerLink]="['/prototipos']">Volver</button>
         </div>
         <div class="col-md-5"></div>
     </div>

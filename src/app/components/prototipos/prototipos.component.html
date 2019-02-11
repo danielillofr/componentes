@@ -15,8 +15,11 @@
                                 <th>
                                     Nombre
                                 </th>
+                                <th>
+                                    Código de lista
+                                </th>
                                 <th></th>
-                                <th></th>
+                                <!-- <th></th> -->
                             </tr>
                         </thead>
                         <!-- <small>{{componentes | json}} </small>
@@ -32,11 +35,14 @@
                                     {{proyecto.nombre}}
                                 </td>
                                 <td>
-                                    <input type="button" value="Eliminar" (click)="Eliminar(proyecto._id, i)">
+                                    {{proyecto.codLista}}
                                 </td>
                                 <td>
-                                    <input type="button" value="Detalle" (click)="Modificar(proyecto._id)">
+                                    <button style="margin-left: 10%" class="btn btn-success" type="button" (click)="Eliminar(proyecto._id, i)">Eliminar</button>
+                                    <button style="margin-left: 10%" type="button" class="btn btn-dark" (click)="Modificar(proyecto._id)">Detalle</button>
                                 </td>
+                                <!-- <td>
+                                </td> -->
                             </tr>
                         </tbody>
                     </table>
@@ -47,13 +53,13 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-4">
                     <div style="text-align: center">
-                        <button class="btn-block btn-success" [routerLink]="['/nuevoproyecto']" style="text-align: center">Crear nuevo proyecto</button>
+                        <button class="btn btn-block btn-success" [routerLink]="['/nuevoproyecto']" style="text-align: center">Crear nuevo proyecto</button>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-4">
                     <div style="text-align: center">
-                        <button class="btn-block btn-danger" [routerLink]="['/entrada']" style="text-align: center">Volver</button>
+                        <button class="btn btn-block btn-danger" [routerLink]="['/entrada']" style="text-align: center">Volver</button>
                     </div>
                 </div>
             </div>

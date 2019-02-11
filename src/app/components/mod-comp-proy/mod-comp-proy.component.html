@@ -55,10 +55,48 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <button class="btn-block btn-success" (click)="Guardar()">Guardar</button>
+                    <button class="btn btn-block btn-success" (click)="Guardar()">Guardar</button>
                 </div>
                 <div class="col-md-4"></div>
             </div>
         </div>
     </form>
+    <hr>
+    <h3 style="color: chocolate">Cambios de estado</h3>
+    <div *ngIf="logs" class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th>
+                        Autor
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let log of logs; let i=index">
+                        <td>
+                            {{i}}
+                        </td>
+                        <td>
+                            {{log.fecha}}
+                        </td>
+                        <td>
+                            {{log.autor}}
+                        </td>
+                        <td>
+                            {{log.estado}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

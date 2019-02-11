@@ -5,6 +5,7 @@ import { environment } from './../../environments/environment';
 import { TipoComProyecto, TipoRespuestaComProyecto } from './../interfaces/comproyecto.interface';
 import { TipoProyecto, TipoRespuestaProyectos } from './../interfaces/proyecto.interface';
 import { Router } from '@angular/router';
+import { TipoLogComPro, TipoResLogComPro } from './../interfaces/logcompro.interface';
 
 
 @Injectable({
@@ -86,6 +87,28 @@ export class ComproyectoService {
     });
   }
 
+  Obtener_logs_componente = (id: String) => {
+    const opciones = {
+      headers: new HttpHeaders ({
+        Authorization: this.apihttp.token
+      })
+    };
+    return new Promise((resolve, reject) => {
+      this.http.get<TipoResLogComPro>(`${this.env}/api/logcompro/${id}`, opciones).subscribe(data => {
+        // resolve (data);
+        console.log('Datos:::', data);
+       if (!data.ok) {
+        if (data.errBaseDatos) {
+          reject ('Error en base de datos');
+        }
+        reject (data.err);
+      }
+      resolve (<TipoLogComPro[]>data.logs);
+      }, (err) => {
+        reject (err);
+      });
+    });
+  }
 
   Obtener_proyecto_completo = async(id: String) => {
     const proyecto = await this.Obtener_proyecto(id);
