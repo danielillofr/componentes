@@ -4,6 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ComproyectoService } from './../../services/comproyecto.service';
 import { TipoComProyecto } from '../../interfaces/comproyecto.interface';
 import { TipoLogComPro } from './../../interfaces/logcompro.interface';
+import { RedirectService } from './../../services/redirect.service';
+
+import { ApihttpService } from './../../services/apihttp.service';
+
 
 
 @Component({
@@ -17,7 +21,16 @@ export class ModCompProyComponent implements OnInit {
     idComponente: String;
     idProyecto: String;
     logs: TipoLogComPro[];
-    constructor(private activatedRoute: ActivatedRoute, private comproyectoService: ComproyectoService, private router: Router) {
+    constructor(private activatedRoute: ActivatedRoute, private comproyectoService: ComproyectoService, private router: Router, private redirectService: RedirectService, private apihttpService: ApihttpService) {
+      if (!apihttpService.logueado) {
+        activatedRoute.params.subscribe(params => {
+          this.idComponente = params.idComponente;
+          this.idProyecto = params.idProyecto;    
+          this.redirectService.setRuta(['modcompproy', this.idProyecto, this.idComponente]);
+          this.router.navigate(['login']);
+        });    
+      }
+      
       this.formulario = new FormGroup({
         referencia: new FormControl('', [Validators.required, Validators.minLength(3)]),
         url: new FormControl(''),
